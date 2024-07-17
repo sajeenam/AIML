@@ -24,4 +24,4 @@
 
 * Link to the ipynb file *
 
-[Go to python notebook file](https://github.com/sajeenam/AIML//coupon/prompt.ipynb)
+[Go to python notebook file](https://github.com/sajeenam/AIML/blob/main/coupon/prompt.ipynb)
