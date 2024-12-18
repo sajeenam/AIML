@@ -28,21 +28,7 @@ Objective of this project is to analyze the data to find the characteristic of t
 These datasets contains highly imbalanced classes so considering using decision trees and random forests. Decision Trees and RandomForest have the advantage of less sensitivity to class imbalances in the dataset dues to their hierarchical structure and ability to create separate path for minority classes.Logistic Regression alse used in this modeling because it can easily adap to class weights to improve performance of imbalanced data.
 Simple models are built using Logistic Regression, Decision Trees, RandomForestClassifier. Feature importance is calculated after this. Finally these models are tuned by finding the best hypermarameters for each of these modeling and compared.
 
-##### LogisticRegression : 
-Class_weight 'None' and 'balanced' is used. 'balanced' class_weight effectively give importance to minority class. solver parameter used 'liblinear' and 'saga'. 'saga' is a variant of Stochastic Average Gradient and is more efficient for large datasets. It can handle multinomial loss and all penalities.l1(Lasso) and l2(Ridge)  penalty used, li can help identify the most important features for distinguising between classes, while l2 can prevent overfitting the class.'C': [0.001, 0.01, 0.1, 1, 10, 100] smaller c values increase regularization, that may generalized better but might underfit. Larger C values creates more complex models that fit training data more closely but might underfit.
-
-##### DecisionTreeClassifier :
-'max_depth': [3, 5, 7, 10, None] , here lower values can help overfitting to majority class on imbalanced dataset , but complex patterns may not be captured. Higher values or 'None' allow deeper trees. 'criterion': ['gini', 'entropy'] : 'gini' might perform better when there is a significant imbalance , while entropy could be preferable for more subtile imbalances.'min_samples_split': [2, 5, 10] this determines the minimum number of samples required to split the samples. A lower value allow the tree to create branches for rare minority class instances, while higher value could prevent overfitting to noise in the majority class.
-
-
-##### RandomForestclassifier :  
-'n_estimators': [250, 500, 750] this denotes the number of decision trees used. Increased number of trees gives stronger ensemble, potentially improving model's ability to identify rare fradulent cases. 'criterion': ['gini', 'entropy'] function used to measure the quality of the split. Entropy is slightly more sensitive to imbalanced classes, potentially giving better results in some fraud detection scenarios. cv=3 means 3-fold cross validation. Model is trained with two foldes and validated to the thrid fold. 
-
 #### Evaluation
-ROC : ROC curve is  drawn calculating true positive rate and false positive rate at selected interval and graphing TPR over FPR. 
-AUC : Area under the curve represents the probability of a randomly chosen positive and negative samples. A perfect model has the area under the curve of 1.0 because the TPR is 1 and APR 0
-When false positives are costly, we prioritize minimizing the False Positive Rate (FPR), even if it results in a lower True Positive Rate (TPR). Conversely, if false positives are inexpensive, we focus on maximizing the True Positive Rate (TPR), even if it leads to a higher FPR. If the costs for false positives and true positives are equal, we aim for a point where the TPR and FPR are balanced.
-
 ROC AUC score evaluates on all possible thresholds and this helps on the current modeling as we do not have an optimal threshold in hand. ROC AUC gives equal importance to both positive and negative class which is crucial for fraud detection. ROC curve provides a visual representation of models performance which makes it easier for comparing different models.
 
 Precision : Precision ensures legitimate transactions are not mistakenly classified as fraudulent.
