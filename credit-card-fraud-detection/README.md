@@ -51,10 +51,8 @@ Recal : Recall ensures that actual instance of fraud transactions are not missed
 Precision , Recal and FI score are calculated for each model.  Models can be fine tuned based on the buisness need using the Precision , Recal and FI score. Precision score can be used to reduce false negatives.Recal scoring can be used maximize the chance to find the fraud.F1 score gives a balance between Precision and Recall score. When making more informed decisions, the precision-recall trade-off helps tailor the model to specific business needs. This allows us to choose whether we should minimize false alarms or prioritize catching more fraud.
 Permutation Importance is calculated on each model to evaluate the best feature from Models.
 
-
-| Without Hyperparameter tuning            | With Hyperparameter Tuning                 |
- ----------------------------------------------------------------------------------------                                                         
-| Model                  |ROC AUC score    | Model                   | ROC AUC score    |
+                                                       
+| Model                  |ROC AUC score    | Tuned Model             | ROC AUC score    |
 |:-----------------------|:----------------|:------------------------|:-----------------|
 | Logistic Regression    | 0.97098         | Logistic Regression.    | 0.97636          | 
 | RandomForestClassifier | 0.96442         | RandomForestClassifier  | 0.99999          | 
